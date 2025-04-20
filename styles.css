@@ -1,242 +1,284 @@
+/* Reset some default styling */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* General Styles */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #f4f4f9;
+    font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
-    transition: background-color 0.3s;
+    background: #f4f4f9;
+    background-image: url('https://www.thespruce.com/thmb/qoZ5r2u0uqTHfgei56fLRPKs4t4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Farrow-Ball-Slipper-Satin-70bc587abf254efc97990ccdd099eb6f.png'); /* Dynamic Background Image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a parallax effect */
+    color: #333;
 }
 
 header {
-    background: rgba(0, 0, 0, 0.85);
-    color: white;
-    padding: 1rem;
+    background-color: rgba(51, 51, 51, 0.8); /* Transparent background for header */
+    color: #fff;
+    padding: 1rem 0;
     text-align: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+}
+
+header h1 {
+    font-size: 2rem;
 }
 
 nav ul {
-    display: flex;
-    justify-content: center;
     list-style: none;
-    gap: 20px;
-    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    font-weight: 600;
+    font-size: 1.1rem;
 }
 
-.mobile-menu {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    margin: 10px;
-}
-
-.mobile-menu span {
-    height: 3px;
-    background: white;
-    margin: 5px 0;
-    width: 25px;
-}
-
+/* Section styles */
 section {
     padding: 2rem 5%;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.6s, transform 0.6s;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight white background for sections */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* About Section */
+#about {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Project Section */
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
 .project {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    perspective: 1000px;
-    margin: 20px auto;
-}
-
-.project > div {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    transition: transform 0.6s ease-in-out;
-    border-radius: 10px;
-    padding: 1rem;
-}
-
-.card-front {
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-
-.card-back {
-    background: #4CAF50;
-    color: white;
-    transform: rotateY(180deg);
-}
-
-.project:hover .card-front {
-    transform: rotateY(180deg);
-}
-.project:hover .card-back {
-    transform: rotateY(360deg);
-}
-
-.repos-links {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.repos-links a {
-    background: #4CAF50;
-    padding: 10px 20px;
+    background-color: #fff;
     border-radius: 8px;
-    color: white;
-    text-decoration: none;
-    width: fit-content;
-    transition: transform 0.3s;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
-.repos-links a:hover {
+.project:hover {
     transform: scale(1.05);
 }
 
-.skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+.project h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
 }
 
-.skills-container span {
-    background: linear-gradient(to right, #4CAF50, #81C784);
-    color: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-    font-weight: 600;
+.project p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contactForm label {
+    display: block;
+    margin: 0.5rem 0;
 }
 
 #contactForm input,
 #contactForm textarea {
     width: 100%;
+    padding: 0.75rem;
     margin-bottom: 1rem;
-    padding: 10px;
-    border-radius: 5px;
     border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 #contactForm button {
-    padding: 10px 20px;
-    background: #333;
-    color: white;
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 2rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 #contactForm button:hover {
-    background: #4CAF50;
+    background-color: #444;
 }
 
+/* Footer */
 footer {
-    background: #333;
-    color: white;
     text-align: center;
     padding: 1rem;
-}
-
-.resume-btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 10px 15px;
     background-color: #333;
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
+    color: #fff;
 }
 
-.floating-socials {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Position the image in the Repos section to top-right */
+#Repos {
+    position: relative;
+    padding: 2rem 5%;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.repos-links {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem; /* Adds space between each link */
+    margin-top: 2rem;
 }
 
-.floating-socials a {
-    font-size: 20px;
-    background: #333;
-    color: white;
-    padding: 10px;
-    border-radius: 50%;
-    text-decoration: none;
-}
-
-#darkToggle {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
-    padding: 8px 12px;
-    border: none;
-    background: #333;
+.repos-links a {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #4CAF50; /* Green background for links */
     color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content; /* Adjusts the width of the link */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow to link */
 }
 
-/* Dark Mode */
-body.dark {
-    background-color: #121212;
-    color: #eee;
+/* Hover effect for Repo Links */
+.repos-links a:hover {
+    background-color: #388E3C; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarges the link on hover */
 }
 
-body.dark header {
-    background-color: #222;
+/* Focus effect for accessibility */
+.repos-links a:focus {
+    outline: 3px solid #FF5722; /* Orange outline on focus */
+    background-color: #388E3C;
 }
 
-body.dark section {
-    background-color: #1f1f1f;
+/* Active effect for Repo Links */
+.repos-links a:active {
+    transform: scale(1.02); /* Slightly reduces the scale when clicked */
+    background-color: #2E7D32; /* Darker green when clicked */
 }
 
-body.dark .repos-links a,
-body.dark .resume-btn,
-body.dark #contactForm button {
-    background-color: #4CAF50;
+/* Open-Source Section */
+#Open-Source {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive */
+#Open-Source h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Section Titles */
+.hacktoberfest-projects h3, 
+.ieee-igdtuw-projects h3 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Container for Contributions */
+.Contri-1 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Contri-1 img {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.Contri-1 p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Links Styling */
+.Contri-1 a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.Contri-1 a:hover {
+    color: #388E3C;
+}
+
+/* Media Query for Mobile Devices */
 @media (max-width: 768px) {
-    nav ul {
+    .Contri-1 {
         flex-direction: column;
-        display: none;
+        align-items: flex-start;
     }
 
-    nav ul.active {
-        display: flex;
-    }
-
-    .mobile-menu {
-        display: flex;
-        justify-content: flex-end;
+    .Contri-1 img {
+        margin-bottom: 15px;
     }
 }
