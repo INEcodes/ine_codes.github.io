@@ -158,7 +158,7 @@ section.visible {
 
 footer {
     background: #333;
-    color: white;
+    color: #121212;
     text-align: center;
     padding: 1rem;
 }
@@ -168,7 +168,7 @@ footer {
     margin-top: 1rem;
     padding: 10px 15px;
     background-color: #333;
-    color: white;
+    color: #121212;
     border-radius: 5px;
     text-decoration: none;
 }
@@ -185,7 +185,7 @@ footer {
 .floating-socials a {
     font-size: 20px;
     background: #333;
-    color: white;
+    color: 121212;
     padding: 10px;
     border-radius: 50%;
     text-decoration: none;
@@ -199,7 +199,7 @@ footer {
     padding: 8px 12px;
     border: none;
     background: #333;
-    color: #fff;
+    color: #121212;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -207,7 +207,7 @@ footer {
 /* Dark Mode */
 body.dark {
     background-color: #121212;
-    color: #eee;
+    color: #121212;
 }
 
 body.dark header {
