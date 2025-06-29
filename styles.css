@@ -1,0 +1,284 @@
+/* Reset some default styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f4f4f9;
+    background-image: url('https://www.thespruce.com/thmb/qoZ5r2u0uqTHfgei56fLRPKs4t4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Farrow-Ball-Slipper-Satin-70bc587abf254efc97990ccdd099eb6f.png'); /* Dynamic Background Image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Creates a parallax effect */
+    color: #333;
+}
+
+header {
+    background-color: rgba(51, 51, 51, 0.8); /* Transparent background for header */
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* Section styles */
+section {
+    padding: 2rem 5%;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight white background for sections */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* About Section */
+#about {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#about h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Project Section */
+#projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.project p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Contact Section */
+#contact {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#contactForm label {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#contactForm button {
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#contactForm button:hover {
+    background-color: #444;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Position the image in the Repos section to top-right */
+#Repos {
+    position: relative;
+    padding: 2rem 5%;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.repos-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Adds space between each link */
+    margin-top: 2rem;
+}
+
+.repos-links a {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #4CAF50; /* Green background for links */
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: fit-content; /* Adjusts the width of the link */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow to link */
+}
+
+/* Hover effect for Repo Links */
+.repos-links a:hover {
+    background-color: #388E3C; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly enlarges the link on hover */
+}
+
+/* Focus effect for accessibility */
+.repos-links a:focus {
+    outline: 3px solid #FF5722; /* Orange outline on focus */
+    background-color: #388E3C;
+}
+
+/* Active effect for Repo Links */
+.repos-links a:active {
+    transform: scale(1.02); /* Slightly reduces the scale when clicked */
+    background-color: #2E7D32; /* Darker green when clicked */
+}
+
+/* Open-Source Section */
+#Open-Source {
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#Open-Source h2 {
+    font-size: 32px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Section Titles */
+.hacktoberfest-projects h3, 
+.ieee-igdtuw-projects h3 {
+    font-size: 24px;
+    color: #4CAF50;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Container for Contributions */
+.Contri-1 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Contri-1 img {
+    width: 120px;
+    height: auto;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.Contri-1 p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+/* Links Styling */
+.Contri-1 a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.Contri-1 a:hover {
+    color: #388E3C;
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .Contri-1 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Contri-1 img {
+        margin-bottom: 15px;
+    }
+}
