@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhay Singh Chauhan | AI/ML Developer</title>
+    
+    <!-- Google tag (gtag.js) - Place this BEFORE other scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y908LXT57G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Y908LXT57G');
+    </script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -730,7 +740,7 @@
             });
         });
 
-        // Contact form handling
+        // Contact form handling with GA4 event tracking
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -739,6 +749,12 @@
             const message = document.getElementById('message').value;
             
             if (name && email && message) {
+                // Track form submission in GA4
+                gtag('event', 'form_submit', {
+                    'event_category': 'Contact',
+                    'event_label': 'Contact Form Submission'
+                });
+                
                 const submitBtn = document.querySelector('.submit-btn');
                 const originalText = submitBtn.textContent;
                 
@@ -752,15 +768,16 @@
                 }, 2000);
             }
         });
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y908LXT57G"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
-    gtag('config', 'G-NB58SVPS83');
+        // Track project link clicks
+        document.querySelectorAll('.project-link').forEach(link => {
+            link.addEventListener('click', function() {
+                gtag('event', 'click', {
+                    'event_category': 'Project Link',
+                    'event_label': this.closest('.project-card').querySelector('.project-title').textContent
+                });
+            });
+        });
     </script>
 </body>
 </html>
