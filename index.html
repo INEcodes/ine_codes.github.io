@@ -86,8 +86,10 @@
             --radius-full: 9999px;
         }
 
-        html {
-            /* Removed scroll-behavior: smooth to use custom JS smooth scroll */
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
         }
 
         body {
@@ -95,7 +97,6 @@
             line-height: 1.7;
             color: var(--on-surface);
             background: var(--surface);
-            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
@@ -108,6 +109,15 @@
         h6 {
             font-family: 'Space Grotesk', sans-serif;
             letter-spacing: -0.02em;
+        }
+
+        /* ============================================================
+           PAGE WRAPPER — clips horizontal overflow on mobile
+           ============================================================ */
+        .page-wrapper {
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
         }
 
         /* ============================================================
@@ -1102,6 +1112,7 @@
             background: linear-gradient(180deg, transparent 0%, rgba(243, 242, 239, 1) 30%, rgba(243, 242, 239, 1) 70%, transparent 100%);
             padding: var(--space-5xl) 0;
             position: relative;
+            overflow: hidden;
         }
 
         .contact-bg::before {
@@ -1327,36 +1338,78 @@
 
         @media (max-width: 768px) {
             .dock {
-                bottom: 12px;
-                padding: 8px 10px;
+                bottom: 10px;
+                padding: 8px 12px;
             }
 
             .dock-items {
-                gap: 4px;
+                gap: 6px;
                 height: 48px;
             }
 
             .dock-item a {
-                width: 38px;
-                height: 38px;
+                width: 40px;
+                height: 40px;
             }
 
             .dock-item a svg {
-                width: 17px;
-                height: 17px;
+                width: 18px;
+                height: 18px;
             }
 
             .dock-separator {
                 height: 24px;
+                margin: 0 2px;
+            }
+
+            .hero {
+                min-height: 80vh;
+                padding: var(--space-xl) var(--space-md);
             }
 
             .hero-title {
                 font-size: 2.8rem;
             }
 
+            .hero-description {
+                font-size: 0.95rem;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+
+            section {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .section-header {
+                margin-bottom: var(--space-lg);
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+                margin-top: var(--space-sm);
+            }
+
+            .about-bg,
+            .repos-bg,
+            .contact-bg {
+                padding: var(--space-sm) 0;
+            }
+
             .about-content {
                 grid-template-columns: 1fr;
-                gap: var(--space-2xl);
+                gap: var(--space-lg);
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+                margin-bottom: var(--space-md);
             }
 
             .projects-grid,
@@ -1365,31 +1418,195 @@
                 grid-template-columns: 1fr;
             }
 
+            .project-card,
+            .repo-card,
+            .contribution-card {
+                padding: var(--space-xl);
+            }
+
             .stats-row {
                 grid-template-columns: repeat(3, 1fr);
                 gap: var(--space-sm);
+            }
+
+            .stat-item {
+                padding: var(--space-md);
             }
 
             .stat-number {
                 font-size: 1.5rem;
             }
 
-            section {
-                padding: var(--space-3xl) var(--space-md);
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .contact-container {
+                padding: 0 var(--space-md);
+            }
+
+            .aurora-blob:nth-child(1) {
+                width: 300px;
+                height: 300px;
+            }
+
+            .aurora-blob:nth-child(2) {
+                width: 250px;
+                height: 250px;
+            }
+
+            .aurora-blob:nth-child(3) {
+                width: 200px;
+                height: 200px;
+            }
+
+            .aurora-blob:nth-child(4) {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero::after {
+                width: 350px;
+                height: 350px;
+            }
+
+            .contact-bg::before {
+                width: 300px;
+                height: 300px;
             }
 
             .cursor-glow {
                 display: none;
             }
+
+            body {
+                padding-bottom: 80px;
+            }
         }
 
         @media (max-width: 480px) {
+            .hero {
+                min-height: 75vh;
+                padding: var(--space-md) var(--space-sm);
+            }
+
             .hero-title {
                 font-size: 2.2rem;
             }
 
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: var(--space-md);
+            }
+
+            section {
+                padding: var(--space-md) var(--space-sm);
+            }
+
+            .section-header {
+                margin-bottom: var(--space-md);
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .section-subtitle {
+                margin-top: var(--space-xs);
+            }
+
+            .about-bg,
+            .repos-bg,
+            .contact-bg {
+                padding: 0;
+            }
+
+            .about-content {
+                gap: var(--space-md);
+            }
+
+            .about-text p {
+                margin-bottom: var(--space-sm);
+            }
+
             .stats-row {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-xs);
+            }
+
+            .stat-item {
+                padding: var(--space-sm);
+            }
+
+            .stat-number {
+                font-size: 1.3rem;
+            }
+
+            .skill-chip {
+                padding: 0.45rem 0.9rem;
+                font-size: 0.7rem;
+            }
+
+            .project-card,
+            .repo-card,
+            .contribution-card {
+                padding: var(--space-lg);
+            }
+
+            .project-title {
+                font-size: 1.15rem;
+            }
+
+            .project-description,
+            .repo-card p,
+            .contribution-card p {
+                font-size: 0.88rem;
+            }
+
+            .dock {
+                bottom: 8px;
+                padding: 6px 10px;
+            }
+
+            .dock-items {
+                gap: 4px;
+            }
+
+            .dock-item a {
+                width: 36px;
+                height: 36px;
+            }
+
+            .dock-item a svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .dock-separator {
+                height: 20px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .contact-container {
+                padding: 0 var(--space-xs);
+            }
+
+            .contribution-links {
+                flex-direction: column;
+                align-items: center;
             }
         }
 
@@ -1416,15 +1633,7 @@
     <!-- Cursor Glow Effect -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
-    <!-- Aurora Background -->
-    <div class="aurora-bg" aria-hidden="true">
-        <div class="aurora-blob"></div>
-        <div class="aurora-blob"></div>
-        <div class="aurora-blob"></div>
-        <div class="aurora-blob"></div>
-    </div>
-
-    <!-- Dock Navigation -->
+    <!-- Dock Navigation — outside wrapper so position:fixed works on mobile -->
     <nav class="dock" id="dock">
         <ul class="dock-items" id="dockItems">
             <li class="dock-item">
@@ -1496,6 +1705,17 @@
             </li>
         </ul>
     </nav>
+
+    <!-- Page Wrapper — prevents horizontal overflow on mobile -->
+    <div class="page-wrapper">
+
+    <!-- Aurora Background -->
+    <div class="aurora-bg" aria-hidden="true">
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+        <div class="aurora-blob"></div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -1747,7 +1967,7 @@
         </div>
     </div>
 
-
+    </div><!-- /.page-wrapper -->
 
     <script>
         // ============================================================
